@@ -16,7 +16,7 @@
 <meta property="og:description" content="余生很长，没有背景，只能努力拼搏才有能力守护心中的净土。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2019-12-12T22:57:11.000Z">
-<meta property="article:modified_time" content="2019-12-13T07:40:37.000Z">
+<meta property="article:modified_time" content="2019-12-20T03:46:49.000Z">
 <meta property="article:author" content="pocket">
 <meta property="article:tag" content="Linux Python 后台开发 运维 docker">
 <meta name="twitter:card" content="summary">
@@ -43,7 +43,15 @@
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
     <div class="left-col" q-class="show:isShow">
-      
+      <!--
+ * @Author: your name
+ * @Date: 2019-12-18 17:30:44
+ * @LastEditTime : 2019-12-20 10:37:21
+ * @LastEditors  : Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: /Blog/themes/yilia/layout/_partial/left-col.ejs
+ -->
+
 <div class="overlay" style="background: #4d4d4d"></div>
 <div class="intrude-less">
 	<header id="header" class="inner">
@@ -62,7 +70,11 @@
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/tags/%E9%9A%8F%E7%AC%94/">随笔</a></li>
+				<li><a href="/archives/index.html">归档</a></li>
+	        
+				<li><a href="/categories">分类</a></li>
+	        
+				<li><a href="/whoami/index.html">闲谈</a></li>
 	        
 			</ul>
 		</nav>
@@ -122,6 +134,10 @@
 			
 				
 			
+				
+			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -141,12 +157,16 @@
 			</nav>
 
 			<nav class="header-menu js-header-menu">
-				<ul style="width: 50%">
+				<ul style="width: 70%">
 				
 				
-					<li style="width: 50%"><a href="/">主页</a></li>
+					<li style="width: 25%"><a href="/">主页</a></li>
 		        
-					<li style="width: 50%"><a href="/tags/%E9%9A%8F%E7%AC%94/">随笔</a></li>
+					<li style="width: 25%"><a href="/archives/index.html">归档</a></li>
+		        
+					<li style="width: 25%"><a href="/categories">分类</a></li>
+		        
+					<li style="width: 25%"><a href="/whoami/index.html">闲谈</a></li>
 		        
 				</ul>
 			</nav>
@@ -161,7 +181,7 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="page-" class="article article-type-page " itemscope itemprop="blogPost">
+            <article id="tags-" class="article article-type-tags " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -185,37 +205,6 @@
       
 
       
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>拿钱去买猫粮~<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/assets/img/alipay.jpg">
-                      <span class="reward-type">支付宝</span>
-                    </div>
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/assets/img/weixin.jpg">
-                      <span class="reward-type">微信</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
     </div>
     <div class="article-info article-info-index">
       
@@ -225,7 +214,15 @@
       
 
       
-        
+        <!--
+ * @Author: your name
+ * @Date: 2019-12-18 17:30:44
+ * @LastEditTime: 2019-12-19 18:25:16
+ * @LastEditors: your name
+ * @Description: In User Settings Edit
+ * @FilePath: /Blog/themes/yilia/layout/_partial/post/share.ejs
+ -->
+
 <div class="share-btn share-icons tooltip-left">
   <div class="tooltip tooltip-east">
     <span class="tooltip-item">
@@ -270,7 +267,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/tags/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yoursite.com/tags/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -314,21 +311,19 @@
 
 
 
-  
-  
-  
-
-  
-
-  
-
-  
-
 
           </div>
         </div>
       </div>
-      <footer id="footer">
+      <!--
+ * @Author: your name
+ * @Date: 2019-12-18 17:30:44
+ * @LastEditTime : 2019-12-20 11:13:51
+ * @LastEditors  : Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: /Blog/themes/yilia/layout/_partial/footer.ejs
+ -->
+<footer id="footer">
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
