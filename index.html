@@ -167,31 +167,29 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-Hexo部署" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Python的全局锁问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/12/10/Hexo%E9%83%A8%E7%BD%B2/">Hexo部署</a>
+      <a class="article-title" href="/2019/12/20/Python%E7%9A%84%E5%85%A8%E5%B1%80%E9%94%81%E9%97%AE%E9%A2%98/">Python的全局锁问题</a>
     </h1>
   
 
         
-        <a href="/2019/12/10/Hexo%E9%83%A8%E7%BD%B2/" class="archive-article-date">
-  	<time datetime="2019-12-10T09:27:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-10</time>
+        <a href="/2019/12/20/Python%E7%9A%84%E5%85%A8%E5%B1%80%E9%94%81%E9%97%AE%E9%A2%98/" class="archive-article-date">
+  	<time datetime="2019-12-20T00:15:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-20</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="个人博客"><a href="#个人博客" class="headerlink" title="个人博客"></a>个人博客</h3><blockquote>
-<p>对于做技术的来讲，有一个自己的技术博客是很重要的，它不仅记录着自己的成长经历，同时也像别人展示了自己。在面试的时候也是属于加分项。</p>
+        <h3 id="Python-GIL"><a href="#Python-GIL" class="headerlink" title="Python GIL"></a>Python GIL</h3><blockquote>
+<p>全局解释器锁GIL，担心它会影响到多线程程序的执行性能。尽管Python完全支持多线程编程， 但是解释器的C语言实现部分在完全并行执行时并不是线程安全的。 实际上，解释器被一个全局解释器锁保护着，它确保任何时候都只有一个Python线程执行。 GIL最大的问题就是Python的多线程程序并不能利用多核CPU的优势（比如一个使用了多个线程的计算密集型程序只会在一个单CPU上面运行）。</p>
 </blockquote>
-<h3 id="Hexo"><a href="#Hexo" class="headerlink" title="Hexo"></a>Hexo</h3><blockquote>
-<p>Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。
         
       
 
@@ -205,7 +203,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hexo</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
         		</li>
       		
 		</ul>
@@ -217,7 +215,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/服务部署//" class="article-tag-list-link color5">服务部署</a>
+        			<a href="/categories/并发编程//" class="article-tag-list-link color5">并发编程</a>
         		</li>
       		
 		</ul>
@@ -226,7 +224,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/12/10/Hexo%E9%83%A8%E7%BD%B2/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/12/20/Python%E7%9A%84%E5%85%A8%E5%B1%80%E9%94%81%E9%97%AE%E9%A2%98/">展开全文 >></a>
         </p>
       
 
@@ -256,6 +254,799 @@
 
 
   
+    <article id="post-并发技术需要了解的概念" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/12/20/%E5%B9%B6%E5%8F%91%E6%8A%80%E6%9C%AF%E9%9C%80%E8%A6%81%E4%BA%86%E8%A7%A3%E7%9A%84%E6%A6%82%E5%BF%B5/">并发技术需要了解的概念</a>
+    </h1>
+  
+
+        
+        <a href="/2019/12/20/%E5%B9%B6%E5%8F%91%E6%8A%80%E6%9C%AF%E9%9C%80%E8%A6%81%E4%BA%86%E8%A7%A3%E7%9A%84%E6%A6%82%E5%BF%B5/" class="archive-article-date">
+  	<time datetime="2019-12-20T00:14:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><blockquote>
+<p>要了解多线程和进程的概念，就得知道内核工作原理，以及并发和并行的概念。还有系统的多任务演变。</p>
+</blockquote>
+<h3 id="多任务系统演变"><a href="#多任务系统演变" class="headerlink" title="多任务系统演变"></a>多任务系统演变</h3><hr>
+<p>在很久以前，CPU 资源十分昂贵，如果让 CPU 只能运行一个程序，那么当 CPU 空闲下来（例如等待 I/O 时），CPU 就空闲下来了。为了让 CPU 得到更好的利用，人们编写了一个监控程序，如果发现某个程序暂时无须使用 CPU 时，监控程序就把另外的正在等待 CPU 资源的程序启动起来，以充分利用 CPU 资源。这种方法被称为 多道程序（Multiprogramming）。</p>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/并发编程//" class="article-tag-list-link color5">并发编程</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/12/20/%E5%B9%B6%E5%8F%91%E6%8A%80%E6%9C%AF%E9%9C%80%E8%A6%81%E4%BA%86%E8%A7%A3%E7%9A%84%E6%A6%82%E5%BF%B5/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-加密" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/12/20/%E5%8A%A0%E5%AF%86/">加密</a>
+    </h1>
+  
+
+        
+        <a href="/2019/12/20/%E5%8A%A0%E5%AF%86/" class="archive-article-date">
+  	<time datetime="2019-12-20T00:12:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="有名的加密库"><a href="#有名的加密库" class="headerlink" title="有名的加密库"></a>有名的加密库</h3><ul>
+<li><p>hashlib库(安全哈希和消息摘要)</p>
+<blockquote>
+<p>该模块实现了许多不同安全散列和消息摘要算法的通用接口。包括FIPS安全散列算法SHA1，SHA224，SHA256，SHA384和SHA512（在FIPS 180-2中定义）以及RSA的MD5算法（在Internet中定义）RFC 1321）。术语“安全散列”和“消息摘要”是可互换的。较旧的算法称为消息摘要。现代术语是安全散列。</p>
+</blockquote>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/python//" class="article-tag-list-link color2">python</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/12/20/%E5%8A%A0%E5%AF%86/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-pypy解释器安装和使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/12/20/pypy%E8%A7%A3%E9%87%8A%E5%99%A8%E5%AE%89%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8/">pypy解释器安装和使用</a>
+    </h1>
+  
+
+        
+        <a href="/2019/12/20/pypy%E8%A7%A3%E9%87%8A%E5%99%A8%E5%AE%89%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8/" class="archive-article-date">
+  	<time datetime="2019-12-20T00:08:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="pypy优点"><a href="#pypy优点" class="headerlink" title="pypy优点"></a>pypy优点</h3><ul>
+<li>速度快（支持JIT即时编译）</li>
+<li>比cpython内存使用暂用更少</li>
+<li>PyPy 与现有的python代码高度兼容。它支持cffi，并可以运行twisted 和django等流行的python库</li>
+<li>无堆栈：默认情况下，PyPy支持无堆栈模式，提供微线程以实现大量并发</li>
+</ul>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/python//" class="article-tag-list-link color2">python</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/12/20/pypy%E8%A7%A3%E9%87%8A%E5%99%A8%E5%AE%89%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-python解释器" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/12/20/python%E8%A7%A3%E9%87%8A%E5%99%A8/">python解释器</a>
+    </h1>
+  
+
+        
+        <a href="/2019/12/20/python%E8%A7%A3%E9%87%8A%E5%99%A8/" class="archive-article-date">
+  	<time datetime="2019-12-20T00:07:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="解释器"><a href="#解释器" class="headerlink" title="解释器"></a>解释器</h3><blockquote>
+<p>因为python语言从规范到解释器都是开源的，理论上只要水平够高都可以编写自己的解释器来运行python代码，所以目前有相当多类型的解释器。</p>
+</blockquote>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/python//" class="article-tag-list-link color2">python</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/12/20/python%E8%A7%A3%E9%87%8A%E5%99%A8/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Redis安装" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/12/20/Redis%E5%AE%89%E8%A3%85/">Redis安装</a>
+    </h1>
+  
+
+        
+        <a href="/2019/12/20/Redis%E5%AE%89%E8%A3%85/" class="archive-article-date">
+  	<time datetime="2019-12-20T00:04:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Redis-端口由来"><a href="#Redis-端口由来" class="headerlink" title="Redis 端口由来"></a>Redis 端口由来</h3><blockquote>
+<p>redis默认端口是6379，其实这是有一定内涵的，它是由手机九宫格键盘字母“MERZ”的位置所对应的数字决定的。</p>
+</blockquote>
+<p><strong>目前Redis官方已经支持的平台有(Linux、MacOs),官方默认不支持Window<br>Window用户想体验的话，可以安装虚拟机,或者使用Microsoft Open Tech group 在 GitHub上开发了一个Win64的版本(<a href="https://github.com/MSOpenTech/redis" target="_blank" rel="noopener">https://github.com/MSOpenTech/redis</a>)</strong></p>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">redis</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/数据库//" class="article-tag-list-link color4">数据库</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/12/20/Redis%E5%AE%89%E8%A3%85/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-proto文件编写" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/12/20/proto%E6%96%87%E4%BB%B6%E7%BC%96%E5%86%99/">.proto文件编写</a>
+    </h1>
+  
+
+        
+        <a href="/2019/12/20/proto%E6%96%87%E4%BB%B6%E7%BC%96%E5%86%99/" class="archive-article-date">
+  	<time datetime="2019-12-20T00:01:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="proto编写"><a href="#proto编写" class="headerlink" title="proto编写"></a>proto编写</h3><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">.proto文件以包声明开头</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="comment">// 字段类型</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"><span class="built_in">bool</span>，<span class="built_in">int</span>32，<span class="built_in">float</span>，<span class="built_in">double</span>，和<span class="built_in">string</span></span></pre></td></tr></table></figure>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">RPC</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/RPC//" class="article-tag-list-link color4">RPC</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/12/20/proto%E6%96%87%E4%BB%B6%E7%BC%96%E5%86%99/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-RPC介绍" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/12/19/RPC%E4%BB%8B%E7%BB%8D/">RPC介绍</a>
+    </h1>
+  
+
+        
+        <a href="/2019/12/19/RPC%E4%BB%8B%E7%BB%8D/" class="archive-article-date">
+  	<time datetime="2019-12-19T23:56:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="RPC简介"><a href="#RPC简介" class="headerlink" title="RPC简介"></a>RPC简介</h3><blockquote>
+<p>RPC的根本问题是耦合（远程调用框架）。RPC更偏向内部调用，REST更偏向外部调用。socket是RPC经常采用的通信手段之一，除了Socket，RPC还有其他的通信方法，比如：http、操作系统自带的管道等技术来实现对于远程程序的调用。微软的Windows系统中，RPC就是采用命名管道进行通信。</p>
+</blockquote>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">RPC</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/RPC//" class="article-tag-list-link color4">RPC</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/12/19/RPC%E4%BB%8B%E7%BB%8D/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-平均负载" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/12/19/%E5%B9%B3%E5%9D%87%E8%B4%9F%E8%BD%BD/">平均负载</a>
+    </h1>
+  
+
+        
+        <a href="/2019/12/19/%E5%B9%B3%E5%9D%87%E8%B4%9F%E8%BD%BD/" class="archive-article-date">
+  	<time datetime="2019-12-19T23:54:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="平均负载"><a href="#平均负载" class="headerlink" title="平均负载"></a>平均负载</h3><blockquote>
+<p>单位时间内，系统处于可运行状态和不可中断状态的平均进程数，也就是平均活跃进程数，它和CPU使用率并没有直接关系。(<strong>不仅包括了正在使用 CPU 的进程，还包括等待 CPU 和等待 I/O 的进程</strong>)</p>
+</blockquote>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/性能调优//" class="article-tag-list-link color5">性能调优</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/12/19/%E5%B9%B3%E5%9D%87%E8%B4%9F%E8%BD%BD/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-磁盘诡异的占用很大" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/12/19/%E7%A3%81%E7%9B%98%E8%AF%A1%E5%BC%82%E7%9A%84%E5%8D%A0%E7%94%A8%E5%BE%88%E5%A4%A7/">磁盘诡异的占用很大</a>
+    </h1>
+  
+
+        
+        <a href="/2019/12/19/%E7%A3%81%E7%9B%98%E8%AF%A1%E5%BC%82%E7%9A%84%E5%8D%A0%E7%94%A8%E5%BE%88%E5%A4%A7/" class="archive-article-date">
+  	<time datetime="2019-12-19T23:52:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="事故"><a href="#事故" class="headerlink" title="事故"></a>事故</h3><blockquote>
+<p>事情是发生在一个偶然的晚上，有人反馈备份系统的时候怎么这么大的磁盘占用，后来我去查看系统磁盘大小的时候,发现确实占用很大，可是一用du命令查找的时候，没发现哪个文件夹大，就很诡异。后来知道了稀疏文件这种东西。查找的时候甚至找出了/proc/kcore这个伪文件系统里的文件，当时也显示占用很大，后来知道了这里的东西实际是不占用磁盘空间的，它不是物理存在的而是虚拟出来的，可以不用管，我甚至一度在这方面花费很多精力，研究错了方向。（<strong>后经排查，是安装服务的时候失败导致。这个服务很特殊，本来就是linux容器，试图在容器内装docker，失败后没管也没删除服务，后续导致某些文件夹下莫名就这样占据很大，高达100多G</strong>）</p>
+</blockquote>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/性能调优//" class="article-tag-list-link color5">性能调优</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/12/19/%E7%A3%81%E7%9B%98%E8%AF%A1%E5%BC%82%E7%9A%84%E5%8D%A0%E7%94%A8%E5%BE%88%E5%A4%A7/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+  
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
+    </nav>
   
 
 
@@ -353,7 +1144,43 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">gitlab</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">FTP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">RPC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">mqtt</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">supervisor</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Systemd</a>
               </li>
             
             <div class="clearfix"></div>
