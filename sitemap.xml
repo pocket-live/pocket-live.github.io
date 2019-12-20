@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/whoami/index.html</loc>
+    
+    <lastmod>2019-12-20T07:16:04.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/categories/index.html</loc>
     
     <lastmod>2019-12-20T03:47:55.000Z</lastmod>
@@ -19,13 +26,6 @@
     <loc>http://yoursite.com/2019/12/10/Hexo%E9%83%A8%E7%BD%B2/</loc>
     
     <lastmod>2019-12-19T10:34:09.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/whoami/index.html</loc>
-    
-    <lastmod>2019-12-13T07:40:18.000Z</lastmod>
     
   </url>
   
