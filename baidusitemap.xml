@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://yoursite.com/2020/02/10/%E5%B8%B8%E8%A7%81%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/</loc>
+    <lastmod>2020-02-11</lastmod>
+  </url>  <url>
+    <loc>http://yoursite.com/2019/12/19/yilia%E4%B8%BB%E9%A2%98%E7%9A%84%E9%AB%98%E7%BA%A7%E9%85%8D%E7%BD%AE/</loc>
+    <lastmod>2020-02-05</lastmod>
+  </url>  <url>
     <loc>http://yoursite.com/2020/02/05/Redis-%E5%B8%83%E9%9A%86%E8%BF%87%E6%BB%A4%E5%99%A8/</loc>
     <lastmod>2020-02-05</lastmod>
   </url>  <url>
@@ -53,9 +59,6 @@
     <lastmod>2019-12-20</lastmod>
   </url>  <url>
     <loc>http://yoursite.com/2019/12/19/FTP%E6%9C%8D%E5%8A%A1%E5%AE%89%E8%A3%85/</loc>
-    <lastmod>2019-12-20</lastmod>
-  </url>  <url>
-    <loc>http://yoursite.com/2019/12/19/yilia%E4%B8%BB%E9%A2%98%E7%9A%84%E9%AB%98%E7%BA%A7%E9%85%8D%E7%BD%AE/</loc>
     <lastmod>2019-12-20</lastmod>
   </url>  <url>
     <loc>http://yoursite.com/2019/12/19/Hexo%E4%B8%BB%E9%A2%98%E7%9A%84%E6%8C%91%E9%80%89%E5%92%8C%E4%BD%BF%E7%94%A8/</loc>
