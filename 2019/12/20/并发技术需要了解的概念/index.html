@@ -5,13 +5,13 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <link rel="dns-prefetch" href="http://yoursite.com">
+  <link rel="dns-prefetch" href="https://pocketcloud.vip">
   <title>并发技术需要了解的概念 | pocket的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="准备 要了解多线程和进程的概念，就得知道内核工作原理，以及并发和并行的概念。还有系统的多任务演变。  多任务系统演变 在很久以前，CPU 资源十分昂贵，如果让 CPU 只能运行一个程序，那么当 CPU 空闲下来（例如等待 I&#x2F;O 时），CPU 就空闲下来了。为了让 CPU 得到更好的利用，人们编写了一个监控程序，如果发现某个程序暂时无须使用 CPU 时，监控程序就把另外的正在等待 CPU 资源的程">
 <meta property="og:type" content="article">
 <meta property="og:title" content="并发技术需要了解的概念">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;20&#x2F;%E5%B9%B6%E5%8F%91%E6%8A%80%E6%9C%AF%E9%9C%80%E8%A6%81%E4%BA%86%E8%A7%A3%E7%9A%84%E6%A6%82%E5%BF%B5&#x2F;index.html">
+<meta property="og:url" content="https:&#x2F;&#x2F;pocketcloud.vip&#x2F;2019&#x2F;12&#x2F;20&#x2F;%E5%B9%B6%E5%8F%91%E6%8A%80%E6%9C%AF%E9%9C%80%E8%A6%81%E4%BA%86%E8%A7%A3%E7%9A%84%E6%A6%82%E5%BF%B5&#x2F;index.html">
 <meta property="og:site_name" content="pocket的博客">
 <meta property="og:description" content="准备 要了解多线程和进程的概念，就得知道内核工作原理，以及并发和并行的概念。还有系统的多任务演变。  多任务系统演变 在很久以前，CPU 资源十分昂贵，如果让 CPU 只能运行一个程序，那么当 CPU 空闲下来（例如等待 I&#x2F;O 时），CPU 就空闲下来了。为了让 CPU 得到更好的利用，人们编写了一个监控程序，如果发现某个程序暂时无须使用 CPU 时，监控程序就把另外的正在等待 CPU 资源的程">
 <meta property="og:locale" content="zh_CN">
@@ -396,8 +396,8 @@
         <!--
  * @Author: your name
  * @Date: 2019-12-18 17:30:44
- * @LastEditTime: 2019-12-19 18:25:16
- * @LastEditors: your name
+ * @LastEditTime : 2020-02-12 19:39:53
+ * @LastEditors  : Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /Blog/themes/yilia/layout/_partial/post/share.ejs
  -->
@@ -446,7 +446,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yoursite.com/2019/12/20/%E5%B9%B6%E5%8F%91%E6%8A%80%E6%9C%AF%E9%9C%80%E8%A6%81%E4%BA%86%E8%A7%A3%E7%9A%84%E6%A6%82%E5%BF%B5/" alt="微信分享二维码">
+      <img src="http://qr.liantu.com/api.php?text=https://pocketcloud.vip/2019/12/20/%E5%B9%B6%E5%8F%91%E6%8A%80%E6%9C%AF%E9%9C%80%E8%A6%81%E4%BA%86%E8%A7%A3%E7%9A%84%E6%A6%82%E5%BF%B5/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -614,19 +614,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">gitlab</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">FTP</a>
+                <a href="javascript:void(0)" class="js-tag color2">gitlab</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -634,7 +626,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Systemd</a>
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -642,7 +634,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">FTP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Systemd</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">mqtt</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -651,10 +655,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">排序</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">mqtt</a>
               </li>
             
             <div class="clearfix"></div>

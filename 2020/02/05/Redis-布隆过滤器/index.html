@@ -5,13 +5,13 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <link rel="dns-prefetch" href="http://yoursite.com">
+  <link rel="dns-prefetch" href="https://pocketcloud.vip">
   <title>Redis-布隆过滤器 | pocket的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="布隆过滤器 布隆过滤器（Bloom Filter）是1970年由布隆提出的。它实际上是一个很长的二进制向量和一系列随机映射函数。布隆过滤器可以用于检索一个元素是否在一个集合中。它的优点是空间效率和查询时间都比一般的算法要好的多，缺点是有一定的误识别率和删除困难。它可以通过一个Hash函数将一个元素映射成一个位阵列（Bit array）中的一个点。这样一来，我们只要看看这个点是不是1就可以知道集合中">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Redis-布隆过滤器">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;02&#x2F;05&#x2F;Redis-%E5%B8%83%E9%9A%86%E8%BF%87%E6%BB%A4%E5%99%A8&#x2F;index.html">
+<meta property="og:url" content="https:&#x2F;&#x2F;pocketcloud.vip&#x2F;2020&#x2F;02&#x2F;05&#x2F;Redis-%E5%B8%83%E9%9A%86%E8%BF%87%E6%BB%A4%E5%99%A8&#x2F;index.html">
 <meta property="og:site_name" content="pocket的博客">
 <meta property="og:description" content="布隆过滤器 布隆过滤器（Bloom Filter）是1970年由布隆提出的。它实际上是一个很长的二进制向量和一系列随机映射函数。布隆过滤器可以用于检索一个元素是否在一个集合中。它的优点是空间效率和查询时间都比一般的算法要好的多，缺点是有一定的误识别率和删除困难。它可以通过一个Hash函数将一个元素映射成一个位阵列（Bit array）中的一个点。这样一来，我们只要看看这个点是不是1就可以知道集合中">
 <meta property="og:locale" content="zh_CN">
@@ -341,8 +341,8 @@
         <!--
  * @Author: your name
  * @Date: 2019-12-18 17:30:44
- * @LastEditTime: 2019-12-19 18:25:16
- * @LastEditors: your name
+ * @LastEditTime : 2020-02-12 19:39:53
+ * @LastEditors  : Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /Blog/themes/yilia/layout/_partial/post/share.ejs
  -->
@@ -391,7 +391,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yoursite.com/2020/02/05/Redis-%E5%B8%83%E9%9A%86%E8%BF%87%E6%BB%A4%E5%99%A8/" alt="微信分享二维码">
+      <img src="http://qr.liantu.com/api.php?text=https://pocketcloud.vip/2020/02/05/Redis-%E5%B8%83%E9%9A%86%E8%BF%87%E6%BB%A4%E5%99%A8/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -559,19 +559,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">gitlab</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">FTP</a>
+                <a href="javascript:void(0)" class="js-tag color2">gitlab</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -579,7 +571,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Systemd</a>
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -587,7 +579,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">FTP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Systemd</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">mqtt</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -596,10 +600,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">排序</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">mqtt</a>
               </li>
             
             <div class="clearfix"></div>
