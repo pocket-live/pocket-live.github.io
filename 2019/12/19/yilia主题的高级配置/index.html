@@ -16,7 +16,7 @@
 <meta property="og:description" content="所有文章列表 方便查阅所有文章  根目录执行以下命令 1npm i hexo-generator-json-content --save 在博客配置文件 _config.yml 最下面加上：">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2019-12-19T23:30:26.000Z">
-<meta property="article:modified_time" content="2020-03-13T10:47:01.000Z">
+<meta property="article:modified_time" content="2020-03-13T10:55:43.000Z">
 <meta property="article:author" content="pocket">
 <meta property="article:tag" content="Hexo">
 <meta name="twitter:card" content="summary">
@@ -222,7 +222,7 @@
 <h3 id="一些bug修复"><a href="#一些bug修复" class="headerlink" title="一些bug修复"></a>一些bug修复</h3><h4 id="微信分享问题"><a href="#微信分享问题" class="headerlink" title="微信分享问题"></a>微信分享问题</h4><blockquote>
 <p>其实这个不算真正意义上分享，发现它就是一个根据网址生成二维码的功能，因为原链接失效导致生成不了二维码。<br>而且我发现每次进入文章都会加载，我觉得可以修改为点击分享的时候在去生成会好一些（当然也有可能作者采用的是异步加载）</p>
 </blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># 找到对应js文件</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">themes/yilia/layout/_partial/post/share.ejs</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># 修改大概57行的代码</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">url换成：</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">    //api.qrserver.com/v1/create-qr-code/?size=150x150&amp;data=</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">    或者：</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">    http://qr.liantu.com/api.php?text=</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">最终：</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">    &lt;img src=<span class="string">"&lt;%- 'qrcode' in locals ? qrcode(sUrl) : 'http://qr.liantu.com/api.php?text=' + sUrl  %&gt;"</span> alt=<span class="string">"微信分享二维码"</span>&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># 后来发现qr.liantu.com地址是进行重定向的请求所以改成如下网址</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">http://qr.topscan.com/api.php</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># 注意也同时要把_config.yml文件的url也得修改(修改成自己的博客真实地址)</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line">url: https://pocketcloud.vip</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line">root: /</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">18</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">19</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># 之后因为支持https原因，外链接也不允许http,所以最终还是替换如下请求方式</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">20</span></pre></td><td class="code"><pre><span class="line">&lt;img src=<span class="string">"&lt;%- 'qrcode' in locals ? qrcode(sUrl) : 'https://api.qrserver.com/v1/create-qr-code/?size=200x200&amp;data=' + sUrl  %&gt;"</span> alt=<span class="string">"微信分享二维码"</span>&gt;</span></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># 找到对应js文件</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">themes/yilia/layout/_partial/post/share.ejs</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># 修改大概57行的代码</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">url换成：</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">    //api.qrserver.com/v1/create-qr-code/?size=150x150&amp;data=</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">    或者：</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">    http://qr.liantu.com/api.php?text=</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">最终：</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">    &lt;img src=<span class="string">"&lt;%- 'qrcode' in locals ? qrcode(sUrl) : 'http://qr.liantu.com/api.php?text=' + sUrl  %&gt;"</span> alt=<span class="string">"微信分享二维码"</span>&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># 后来发现qr.liantu.com地址是进行重定向的请求所以改成如下网址</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">http://qr.topscan.com/api.php</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># 注意也同时要把_config.yml文件的url也得修改(修改成自己的博客真实地址)</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line">url: https://pocketcloud.vip</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line">root: /</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">18</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">19</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># 之后因为支持https原因，外链接也不允许http,所以最终还是替换如下请求方式(api.qrserver.com这个虽然也可以，但是请求相对很慢)</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">20</span></pre></td><td class="code"><pre><span class="line">&lt;img src=<span class="string">"&lt;%- 'qrcode' in locals ? qrcode(sUrl) : 'https://sapi.k780.com/?app=qr.get&amp;data=' + sUrl  %&gt;"</span> alt=<span class="string">"微信分享二维码"</span>&gt;</span></pre></td></tr></table></figure>
 <h4 id="修复litten-me-9005请求失败"><a href="#修复litten-me-9005请求失败" class="headerlink" title="修复litten.me:9005请求失败"></a>修复litten.me:9005请求失败</h4><blockquote>
 <p>貌似这个请求是发送给主题作者的，我们把它禁止了。<br><strong>原作者说不一定会常开这个服务，通常是在主题更新后几天会开启。帮助分析和设计。它是异步的，并不会对性能产生影响，请放心。</strong></p>
 </blockquote>
@@ -482,10 +482,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">gitlab</a>
               </li>
              
@@ -494,11 +490,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">mqtt</a>
+                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">redis基础</a>
+                <a href="javascript:void(0)" class="js-tag color1">布隆过滤器</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">RPC</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -514,7 +514,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">RPC</a>
+                <a href="javascript:void(0)" class="js-tag color5">mqtt</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -522,7 +522,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">布隆过滤器</a>
+                <a href="javascript:void(0)" class="js-tag color3">redis基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Linux虚拟文件系统</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -534,23 +538,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">python加密</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Linux虚拟文件系统</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">迭代器</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">魔法代码</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -558,7 +546,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">并发概念</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">魔法代码</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">迭代器</a>
               </li>
             
             <div class="clearfix"></div>
