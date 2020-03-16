@@ -175,6 +175,268 @@
  -->
 
   
+    <article id="post-CeleryCelery的multi命令" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/03/15/CeleryCelery%E7%9A%84multi%E5%91%BD%E4%BB%A4/">CeleryCelery的multi命令</a>
+    </h1>
+  
+
+        
+        <a href="/2020/03/15/CeleryCelery%E7%9A%84multi%E5%91%BD%E4%BB%A4/" class="archive-article-date">
+  	<time datetime="2020-03-15T22:51:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="celery-multi命令"><a href="#celery-multi命令" class="headerlink" title="celery multi命令"></a>celery multi命令</h4><blockquote>
+<p>在生产环境中，需要在后台运行worker。我们可以用supervistor,也可以用celery自带的multi进行启动守护进程。<br><br><strong>celery multi不存储有关工作程序的信息，因此需要在重新启动时使用相同的命令行参数。停止时仅必须使用相同的pidfile和logfile参数</strong></p>
+</blockquote>
+<h5 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h5><blockquote>
+<p>默认情况下，它将在当前目录中创建pid和日志文件，以防止多个工作程序相互启动，建议您将它们放在专用目录中</p>
+</blockquote>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">celery</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/分布式//" class="article-tag-list-link color4">分布式</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/03/15/CeleryCelery%E7%9A%84multi%E5%91%BD%E4%BB%A4/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-celery在项目中使用和注意" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/03/15/celery%E5%9C%A8%E9%A1%B9%E7%9B%AE%E4%B8%AD%E4%BD%BF%E7%94%A8%E5%92%8C%E6%B3%A8%E6%84%8F/">celery在项目中使用和注意</a>
+    </h1>
+  
+
+        
+        <a href="/2020/03/15/celery%E5%9C%A8%E9%A1%B9%E7%9B%AE%E4%B8%AD%E4%BD%BF%E7%94%A8%E5%92%8C%E6%B3%A8%E6%84%8F/" class="archive-article-date">
+  	<time datetime="2020-03-15T22:50:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="实战"><a href="#实战" class="headerlink" title="实战"></a>实战</h3><h4 id="项目目录结构"><a href="#项目目录结构" class="headerlink" title="项目目录结构"></a>项目目录结构</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">proj</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">├── __init__.py</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">├── celery_app.py  <span class="comment"># celery app</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">└── tasks.py <span class="comment"># 需要执行的任务</span></span></pre></td></tr></table></figure>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">celery</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/分布式//" class="article-tag-list-link color4">分布式</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/03/15/celery%E5%9C%A8%E9%A1%B9%E7%9B%AE%E4%B8%AD%E4%BD%BF%E7%94%A8%E5%92%8C%E6%B3%A8%E6%84%8F/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Celery入门和简单使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/03/15/Celery%E5%85%A5%E9%97%A8%E5%92%8C%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/">Celery入门和简单使用</a>
+    </h1>
+  
+
+        
+        <a href="/2020/03/15/Celery%E5%85%A5%E9%97%A8%E5%92%8C%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/" class="archive-article-date">
+  	<time datetime="2020-03-15T22:49:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Celery-分布式任务队列"><a href="#Celery-分布式任务队列" class="headerlink" title="Celery(分布式任务队列)"></a>Celery(分布式任务队列)</h3><blockquote>
+<p>Celery是一个简单、灵活、高可用、高性能的开源（BSD许可）分布式任务处理系统，专注于实时处理的任务队列管理，同时也支持任务调度。<br><br>Celery基于Python实现（但是该协议可以用任何语言实现），跟包括Django、Pyramid、Pylons、Flask、Tornado等Web框架都无缝集成，有庞大的用户与贡献者社区。<strong>Celery需要消息传输才能发送和接收消息（如：RabbitMQ、Redis、Amazon SQS、Zookeeper）</strong>。Celery可以单机运行，也可以在多台机器上运行，甚至可以跨越数据中心运行。<br><a href="https://docs.celeryproject.org/en/stable/getting-started/introduction.html" target="_blank" rel="noopener">官方文档</a><br><br>简单理解原理就是，把它看成是一个自己实现的python程序，里面监听者rabbitmq的消息队列，收到某种消息就执行对应的方法（看成是worker），如果需要存储值可以存在redis里。然后另一个程序（比如：flask）充当生产者一样，当需要哪些异步完成的时候，就通过消息队列发出去就行了，如果需要获取值就去redis取。不过呢celery实现的更复杂也有更多新功能和玩法。</p>
+</blockquote>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">celery</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/分布式//" class="article-tag-list-link color4">分布式</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/03/15/Celery%E5%85%A5%E9%97%A8%E5%92%8C%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-魔法代码" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -794,274 +1056,6 @@
 
 
   
-    <article id="post-并发技术需要了解的概念" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/12/20/%E5%B9%B6%E5%8F%91%E6%8A%80%E6%9C%AF%E9%9C%80%E8%A6%81%E4%BA%86%E8%A7%A3%E7%9A%84%E6%A6%82%E5%BF%B5/">并发技术需要了解的概念</a>
-    </h1>
-  
-
-        
-        <a href="/2019/12/20/%E5%B9%B6%E5%8F%91%E6%8A%80%E6%9C%AF%E9%9C%80%E8%A6%81%E4%BA%86%E8%A7%A3%E7%9A%84%E6%A6%82%E5%BF%B5/" class="archive-article-date">
-  	<time datetime="2019-12-20T00:14:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-20</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><blockquote>
-<p>要了解多线程和进程的概念，就得知道内核工作原理，以及并发和并行的概念。还有系统的多任务演变。</p>
-</blockquote>
-<h3 id="多任务系统演变"><a href="#多任务系统演变" class="headerlink" title="多任务系统演变"></a>多任务系统演变</h3><hr>
-<p>在很久以前，CPU 资源十分昂贵，如果让 CPU 只能运行一个程序，那么当 CPU 空闲下来（例如等待 I/O 时），CPU 就空闲下来了。为了让 CPU 得到更好的利用，人们编写了一个监控程序，如果发现某个程序暂时无须使用 CPU 时，监控程序就把另外的正在等待 CPU 资源的程序启动起来，以充分利用 CPU 资源。这种方法被称为 多道程序（Multiprogramming）。</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">并发概念</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/并发编程//" class="article-tag-list-link color5">并发编程</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/12/20/%E5%B9%B6%E5%8F%91%E6%8A%80%E6%9C%AF%E9%9C%80%E8%A6%81%E4%BA%86%E8%A7%A3%E7%9A%84%E6%A6%82%E5%BF%B5/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-加密" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/12/20/%E5%8A%A0%E5%AF%86/">加密</a>
-    </h1>
-  
-
-        
-        <a href="/2019/12/20/%E5%8A%A0%E5%AF%86/" class="archive-article-date">
-  	<time datetime="2019-12-20T00:12:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-20</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="有名的加密库"><a href="#有名的加密库" class="headerlink" title="有名的加密库"></a>有名的加密库</h3><ul>
-<li><p>hashlib库(安全哈希和消息摘要)</p>
-<blockquote>
-<p>该模块实现了许多不同安全散列和消息摘要算法的通用接口。包括FIPS安全散列算法SHA1，SHA224，SHA256，SHA384和SHA512（在FIPS 180-2中定义）以及RSA的MD5算法（在Internet中定义）RFC 1321）。术语“安全散列”和“消息摘要”是可互换的。较旧的算法称为消息摘要。现代术语是安全散列。</p>
-</blockquote>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">python加密</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/python//" class="article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/12/20/%E5%8A%A0%E5%AF%86/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-pypy解释器安装和使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/12/20/pypy%E8%A7%A3%E9%87%8A%E5%99%A8%E5%AE%89%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8/">pypy解释器安装和使用</a>
-    </h1>
-  
-
-        
-        <a href="/2019/12/20/pypy%E8%A7%A3%E9%87%8A%E5%99%A8%E5%AE%89%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8/" class="archive-article-date">
-  	<time datetime="2019-12-20T00:08:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-20</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="pypy优点"><a href="#pypy优点" class="headerlink" title="pypy优点"></a>pypy优点</h3><ul>
-<li>速度快（支持JIT即时编译）</li>
-<li>比cpython内存使用暂用更少</li>
-<li>PyPy 与现有的python代码高度兼容。它支持cffi，并可以运行twisted 和django等流行的python库</li>
-<li>无堆栈：默认情况下，PyPy支持无堆栈模式，提供微线程以实现大量并发</li>
-</ul>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">解释器</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/python//" class="article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/12/20/pypy%E8%A7%A3%E9%87%8A%E5%99%A8%E5%AE%89%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next</a>
@@ -1172,23 +1166,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">gitlab</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">FTP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">布隆过滤器</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">RPC</a>
+                <a href="javascript:void(0)" class="js-tag color2">celery</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1196,11 +1174,43 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">FTP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">RPC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">gitlab</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">redis安装</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">布隆过滤器</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">redis基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Systemd</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">supervisor</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Linux虚拟文件系统</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1212,19 +1222,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">redis基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Linux虚拟文件系统</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">python缓存</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">supervisor</a>
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1232,11 +1230,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">排序</a>
+                <a href="javascript:void(0)" class="js-tag color4">迭代器</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+                <a href="javascript:void(0)" class="js-tag color4">python缓存</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">排序</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1245,10 +1247,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">魔法代码</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">迭代器</a>
               </li>
             
             <div class="clearfix"></div>
