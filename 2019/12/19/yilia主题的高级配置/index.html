@@ -16,7 +16,7 @@
 <meta property="og:description" content="所有文章列表 方便查阅所有文章  根目录执行以下命令 1npm i hexo-generator-json-content --save 在博客配置文件 _config.yml 最下面加上：">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2019-12-19T23:30:26.000Z">
-<meta property="article:modified_time" content="2020-03-13T10:55:43.000Z">
+<meta property="article:modified_time" content="2020-03-20T06:37:19.000Z">
 <meta property="article:author" content="pocket">
 <meta property="article:tag" content="Hexo">
 <meta name="twitter:card" content="summary">
@@ -201,6 +201,10 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在source下创建一个资源文件夹</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">mkdir /blog/<span class="built_in">source</span>/assets/img</span></pre></td></tr></table></figure>
 <p>在<code>themes/yilia/_config.yml</code>下配置如下设置</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># 微信二维码图片</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="attr">weixin:</span>  <span class="string">/assets/img/wechat.png</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># 头像图片</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"><span class="attr">avatar:</span>  <span class="string">/assets/img/head.jpg</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># 网页图标</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line"><span class="attr">favicon:</span>  <span class="string">/assets/img/head.jpg</span></span></pre></td></tr></table></figure>
+<h4 id="打赏功能图片尺寸问题"><a href="#打赏功能图片尺寸问题" class="headerlink" title="打赏功能图片尺寸问题"></a>打赏功能图片尺寸问题</h4><blockquote>
+<p>默认很小，导致二维码识别困难</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--找到yilia/layout/_partial/article.ejs文件，把对应需要显示的二维码图片修改如下（以下只修改了宽度自动，高度为250px）--&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">class</span>=<span class="string">"reward-img"</span> <span class="attr">src</span>=<span class="string">"&lt;%= theme.weixin%&gt;"</span> <span class="attr">style</span>=<span class="string">"width: auto; height:250px; max-width: 100%;"</span>&gt;</span></span></pre></td></tr></table></figure>
 
 <h3 id="文章分类"><a href="#文章分类" class="headerlink" title="文章分类"></a>文章分类</h3><blockquote>
 <p>yilia默认没有文章分类，毕竟简约</p>
@@ -357,7 +361,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#所有文章列表"><span class="toc-number">1.</span> <span class="toc-text">所有文章列表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#添加图片资源文件夹"><span class="toc-number">2.</span> <span class="toc-text">添加图片资源文件夹</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#文章分类"><span class="toc-number">3.</span> <span class="toc-text">文章分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#一些bug修复"><span class="toc-number">4.</span> <span class="toc-text">一些bug修复</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#微信分享问题"><span class="toc-number">4.1.</span> <span class="toc-text">微信分享问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#修复litten-me-9005请求失败"><span class="toc-number">4.2.</span> <span class="toc-text">修复litten.me:9005请求失败</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#所有文章列表"><span class="toc-number">1.</span> <span class="toc-text">所有文章列表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#添加图片资源文件夹"><span class="toc-number">2.</span> <span class="toc-text">添加图片资源文件夹</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#打赏功能图片尺寸问题"><span class="toc-number">2.1.</span> <span class="toc-text">打赏功能图片尺寸问题</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#文章分类"><span class="toc-number">3.</span> <span class="toc-text">文章分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#一些bug修复"><span class="toc-number">4.</span> <span class="toc-text">一些bug修复</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#微信分享问题"><span class="toc-number">4.1.</span> <span class="toc-text">微信分享问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#修复litten-me-9005请求失败"><span class="toc-number">4.2.</span> <span class="toc-text">修复litten.me:9005请求失败</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -376,6 +380,22 @@
 
   
 
+  
+  <div id="gitment-ctn"></div> 
+<link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css">
+<script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  id: "https://pocketcloud.vip/2019/12/19/yilia%E4%B8%BB%E9%A2%98%E7%9A%84%E9%AB%98%E7%BA%A7%E9%85%8D%E7%BD%AE/",
+  owner: 'pocket-live',
+  repo: 'pocket-live.github.io',
+  oauth: {
+    client_id: '199927b153f89fbc82ac',
+    client_secret: '4afc14598af79bb72d80523558a609dec1ee2a55',
+  },
+})
+gitment.render('gitment-ctn')
+</script>
   
 
 
@@ -486,7 +506,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">gitlab</a>
+                <a href="javascript:void(0)" class="js-tag color2">Server</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -494,19 +514,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Server</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">布隆过滤器</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">GIL锁</a>
+                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">gitlab</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -514,11 +530,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">redis基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Systemd</a>
+                <a href="javascript:void(0)" class="js-tag color5">GIL锁</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -526,15 +538,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">解释器</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">VPN</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Linux虚拟文件系统</a>
+                <a href="javascript:void(0)" class="js-tag color3">Systemd</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -542,7 +546,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">supervisor</a>
+                <a href="javascript:void(0)" class="js-tag color2">Linux虚拟文件系统</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">redis基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">VPN</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">解释器</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -554,11 +570,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">python加密</a>
+                <a href="javascript:void(0)" class="js-tag color1">supervisor</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">排序</a>
+                <a href="javascript:void(0)" class="js-tag color4">python加密</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -566,11 +582,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">迭代器</a>
+                <a href="javascript:void(0)" class="js-tag color5">魔法代码</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">魔法代码</a>
+                <a href="javascript:void(0)" class="js-tag color3">排序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">迭代器</a>
               </li>
             
             <div class="clearfix"></div>
