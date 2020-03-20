@@ -198,45 +198,7 @@
         <h3 id="HTTP-Server"><a href="#HTTP-Server" class="headerlink" title="HTTP Server"></a>HTTP Server</h3><blockquote>
 <p>严格的来说，Apache/Nginx 应该叫做「HTTP Server」,类似Tomcat、WebLogic、(flask、Django内部自带的Web服务器)这些称为「Application Server」更合适。<br><br>一个 HTTP Server 关心的是 HTTP 协议层面的传输和访问控制，所以在 Apache/Nginx 上你可以看到代理、负载均衡等功能。客户端通过 HTTP Server 访问服务器上存储的资源（HTML 文件、图片文件等等）。通过 CGI 技术，也可以将处理过的内容通过 HTTP Server 分发，但是一个 HTTP Server 始终只是把服务器上的文件如实的通过 HTTP 协议传输给客户端。</p>
 </blockquote>
-<h4 id="Nginx"><a href="#Nginx" class="headerlink" title="Nginx"></a>Nginx</h4><blockquote>
-<p>开源的HTTP服务器软件（当然它也可以作为邮件代理服务器、通用的TCP代理服务器）</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">1.轻量级，同样的web服务，比apache占用更少的内存及资源</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">2.抗并发，nginx处理请求是异步非阻塞的，而apache则是阻塞型的，在高并发下nginx能保持低资源低消耗高性能</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">3.高度模块化的设计，编写模块相对简单</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">4.社区活跃，各种高性能模块出品迅速</span></pre></td></tr></table></figure>
-<h4 id="Apache-HTTP-Server"><a href="#Apache-HTTP-Server" class="headerlink" title="Apache HTTP Server"></a>Apache HTTP Server</h4><blockquote>
-<p>Apache HTTP Server项目是为现代操作系统（包括UNIX和Windows）开发和维护开源HTTP服务器的一项工作。该项目的目标是提供一个安全，高效且可扩展的服务器，该服务器提供与当前HTTP标准同步的HTTP服务。<br>Apache HTTP Server（“ httpd”）于1995年推出，自1996年4月以来一直是Internet上最受欢迎的Web服务器。作为一个项目，它在2015年2月庆祝了其20岁生日。<br>Apache HTTP Server是Apache Software Foundation的项目。</p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># apache相对于nginx的优点</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span>rewrite，比nginx的rewrite强大</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"><span class="number">2.</span>动态页面</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"><span class="number">3.</span>模块超多，基本想到的都可以找到</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"><span class="number">4.</span>少bug，nginx的bug相对较多 </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line"><span class="number">5.</span>超稳定</span></pre></td></tr></table></figure>
-<h4 id="Haproxy"><a href="#Haproxy" class="headerlink" title="Haproxy"></a>Haproxy</h4><h4 id="使用决策"><a href="#使用决策" class="headerlink" title="使用决策"></a>使用决策</h4><p><strong>一般来说，需要性能的web服务，用nginx。如果不需要性能只求稳定，那就apache。如果要进行四层负载，那最好Haproxy</strong></p>
-<h3 id="Application-Server"><a href="#Application-Server" class="headerlink" title="Application Server"></a>Application Server</h3><blockquote>
-<p>应用服务器，是一个应用执行的容器。它首先需要支持开发语言的 Runtime（对于 Tomcat 来说，就是 Java），保证应用能够在应用服务器上正常运行。其次，需要支持应用相关的规范，例如类库、安全方面的特性。对于 Tomcat 来说，就是需要提供 JSP/Sevlet 运行需要的标准类库、Interface 等。为了方便，应用服务器往往也会集成 HTTP Server 的功能，但是不如专业的 HTTP Server 那么强大，所以应用服务器往往是运行在 HTTP Server 的背后，执行应用（<strong>这也是为什么很多web服务器已经实现了功能，却还是使用nginx服务器做负载分发</strong>），将动态的内容转化为静态的内容之后，通过 HTTP Server 分发到客户端。</p>
-</blockquote>
-<h4 id="Oracle-WebLogic"><a href="#Oracle-WebLogic" class="headerlink" title="Oracle WebLogic"></a>Oracle WebLogic</h4><blockquote>
-<p>WebLogic不开源不免费</p>
-</blockquote>
-<h4 id="Tomcat"><a href="#Tomcat" class="headerlink" title="Tomcat"></a>Tomcat</h4><blockquote>
-<p>Tomcat开源免费</p>
-</blockquote>
-<h3 id="IBM-HTTP-Server"><a href="#IBM-HTTP-Server" class="headerlink" title="IBM HTTP Server"></a>IBM HTTP Server</h3><blockquote>
-<p>IBM的服务</p>
-</blockquote>
-<h3 id="Red-Hat-JBoss"><a href="#Red-Hat-JBoss" class="headerlink" title="Red Hat JBoss"></a>Red Hat JBoss</h3><blockquote>
-<p>红帽JBoss Web服务器是一组完全集成并经过认证的组件，用于托管Java Web应用程序。它由一个Web服务器（Apache HTTP Server），应用程序服务器（Apache Tomcat Servlet容器），负载均衡器（mod_jk和mod_cluster）以及Tomcat本机库组成。<br><a href="https://access.redhat.com/documentation/en-us/red_hat_jboss_web_server/3/html/installation_guide/index" target="_blank" rel="noopener">官方文档</a></p>
-</blockquote>
-<h3 id="IIS-Web-Server"><a href="#IIS-Web-Server" class="headerlink" title="IIS Web Server"></a>IIS Web Server</h3><blockquote>
-<p>windows上的服务,Internet信息服务（IIS）7和更高版本提供了一种请求处理体系结构 <br><a href="https://docs.microsoft.com/en-us/iis/get-started/introduction-to-iis/introduction-to-iis-architecture" target="_blank" rel="noopener">官方文档</a></p>
-</blockquote>
-<ul>
-<li>Windows进程激活服务（WAS），使站点可以使用HTTP和HTTPS以外的协议。</li>
-<li>可以通过添加或删除模块来自定义Web服务器引擎。</li>
-<li>来自IIS和ASP.NET的集成请求处理管道。</li>
-</ul>
-<h3 id="AWS-Elastic-Load-Balancing"><a href="#AWS-Elastic-Load-Balancing" class="headerlink" title="AWS Elastic Load Balancing"></a>AWS Elastic Load Balancing</h3><blockquote>
-<p>亚马逊的服务</p>
-</blockquote>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><blockquote>
-<p>HTTP服务器本质上也是一种应用程序——它通常运行在服务器之上，绑定服务器的IP地址并监听某一个tcp端口来接收并处理HTTP请求，这样客户端（一般来说是IE, Firefox，Chrome这样的浏览器）就能够通过HTTP协议来获取服务器上的网页（HTML格式）、文档（PDF格式）、音频（MP4格式）、视频（MOV格式）等等资源。<br><br>不仅仅是Apache HTTP Server和Nginx，绝大多数编程语言所包含的类库中也都实现了简单的HTTP服务器方便开发者使用。（如:Python SimpleHTTPServer），使用这些类库能够非常容易的运行一个HTTP服务器，它们都能够通过绑定IP地址并监听tcp端口来提供HTTP服务。<br><br>Apache HTTP Server和Nginx本身不支持生成动态页面，但它们可以通过其他模块来支持（例如通过Shell、PHP、Python脚本程序来动态生成内容）。<br><br><strong>但是如果想要使用编程语言来动态生成资源内容，使用这一类HTTP服务器很难做到。</strong><br>所以我们需要能动态生成页面，并处理HTTP请求并相应的程序</p>
-</blockquote>
-
+        
       
 
       
@@ -323,101 +285,7 @@
         <h3 id="VPN-L2TP"><a href="#VPN-L2TP" class="headerlink" title="VPN(L2TP)"></a>VPN(L2TP)</h3><blockquote>
 <p>在macOS系统下常常用到L2TP类型的VPN来接入公司网络. 但是通常情况下, 这种类型的VPN一旦接入, 会导致本机所有的流量流经该VPN. 包括对外网资源的访问. 如果公司外网较慢, 或者公司内网没有网络， 会严重影响本机访问外网的速度。<br><br><strong>之所以开启了VPN后会这样，是因为VPN软件优先使用其路由的标准技巧（添加路由，让路由共同覆盖了所有IP地址，但是每条路由都比默认路由更具体，因此系统决定优先级的时候，他们将会获胜，获得高优先级）</strong></p>
 </blockquote>
-<p><strong>注意</strong><br><br>网络有优先级服务顺序，开启L2TP VPN后发现无效，内网还是访问不了，但是设置L2TP为第一个服务顺序的话就可以访问。可是这样的话，如果内网不具备访问互联网的功能的话，就会导致我们电脑也不会有网，只能访问内网。每次需要访问互联网的时候就需要关闭VPN，来来回回切换就会体验很不好。</p>
-<hr>
-<ul>
-<li><p>获取未连接vpn前的网关地址</p>
-  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看Internet(IPV4)中第一条default路由</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">netstat -nr</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># 结果如下</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">Routing tables</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">Internet:</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">Destination        Gateway            Flags        Refs      Use   Netif Expire</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">default            192.168.1.1        UGSc          114        0     en0       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">127                127.0.0.1          UCS             0        0     lo0       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">127.0.0.1          127.0.0.1          UH             83   228978     lo0    </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># 记录网关地址192.168.1.1</span></span></pre></td></tr></table></figure>
-</li>
-<li><p>设置指定流量通过路由表</p>
-<ul>
-<li><p>查看本机DNS</p>
-  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">nslookup store.chanjet.com</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="string">'''</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"><span class="string">Server:		240e:1f:1::1  # 这个就是DNS</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"><span class="string">Address:	240e:1f:1::1#53</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"><span class="string"></span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line"><span class="string">Non-authoritative answer:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line"><span class="string">store.CHANJET.com	canonical name = 6owaxcscwy0pzpp3yiyjlxekirsg2bmf.yundunwaf.com.</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line"><span class="string">Name:	6owaxcscwy0pzpp3yiyjlxekirsg2bmf.yundunwaf.com</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line"><span class="string">Address: 59.110.244.1</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line"><span class="string">'''</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># 或者</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">cat /etc/resolv.conf |grep nameserver</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line"><span class="string">'''</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line"><span class="string">nameserver 240e:1f:1::1</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line"><span class="string">nameserver 240e:1f:1::33</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line"><span class="string">nameserver 192.168.1.1</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">18</span></pre></td><td class="code"><pre><span class="line"><span class="string">'''</span></span></pre></td></tr></table></figure>
-</li>
-<li><p>配置流量表</p>
-<blockquote>
-</blockquote>
-  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># 以root身份进入/etc/ppp，查看是否有ip-up文件，没有就创建</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">cd /etc/ppp</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">sudo su</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">touch ip-up</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">vim ip-up</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># ip-up内容如下</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line"><span class="string">'''</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line"><span class="string">#!/bin/sh</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line"><span class="string"></span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line"><span class="string"># 192.168.8.103是需要转发的网络地址，$1是ppp0的接口，打开vpn, 系统执行的时候会传入该参数</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line"><span class="string">/sbin/route add -net 192.168.8.103 -interface $1</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line"><span class="string">/sbin/route add -net 240e:1f:1::1 -interface $1 # 添加dns服务器的路由</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line"><span class="string"></span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line"><span class="string"># 删除默认路由</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line"><span class="string">/sbin/route delete default</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line"><span class="string"># 添加默认路由为指定的地址</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">18</span></pre></td><td class="code"><pre><span class="line"><span class="string">/sbin/route add default 192.168.1.1</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">19</span></pre></td><td class="code"><pre><span class="line"><span class="string">'''</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">20</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">21</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># 完了后设置一下文件权限</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">22</span></pre></td><td class="code"><pre><span class="line">chmod <span class="number">0755</span> /etc/ppp/ip-up</span></pre></td></tr></table></figure>
-</li>
-<li><p>在<strong>偏好设置/网络</strong>中将电脑VPN设置中的通过VPN连接发送所有流量的选项勾选去掉</p>
-</li>
-<li><p>在<strong>偏好设置/网络</strong>中将wifi/以太网口设置为第一服务顺序，VPN(L2TP)为最后</p>
-<blockquote>
-<p>这么做的目的是为了调整优先级。（在MacOS上是如此调整的）</p>
-</blockquote>
-  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看网络优先级顺序（也可直接去偏好设置查看）</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">$ networksetup -listnetworkserviceorder</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">An asterisk (*) denotes that a network service <span class="keyword">is</span> disabled.</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">(<span class="number">1</span>) USB Ethernet</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">(Hardware Port: USB Ethernet, Device: en7)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">(<span class="number">2</span>) Wi-Fi</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">(Hardware Port: Wi-Fi, Device: en0)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">(<span class="number">3</span>) VPN (L2TP)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">(Hardware Port: L2TP, Device: )</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">(<span class="number">4</span>) Bluetooth PAN</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">(Hardware Port: 蓝牙 PAN, Device: en6)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># 更改顺序</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line">networksetup -ordernetworkservices</span></pre></td></tr></table></figure>
-</li>
-<li><p>最后路由表</p>
-  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># 最后路由</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">Internet:</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">Destination        Gateway            Flags        Refs      Use   Netif Expire</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">default            <span class="number">192.168</span><span class="number">.1</span><span class="number">.1</span>        UGSc           <span class="number">89</span>        <span class="number">0</span>     en0       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">default            link<span class="comment">#18            UCSI            0        0    ppp0       </span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line"><span class="number">1.0</span><span class="number">.0</span><span class="number">.1</span>            <span class="number">192.168</span><span class="number">.11</span><span class="number">.138</span>     UH              <span class="number">0</span>        <span class="number">0</span>    ppp0       </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line"><span class="number">124.192</span><span class="number">.100</span><span class="number">.194</span>    <span class="number">192.168</span><span class="number">.1</span><span class="number">.1</span>        UGHS            <span class="number">4</span>     <span class="number">1449</span>     en0</span></pre></td></tr></table></figure>
-
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="路由表介绍"><a href="#路由表介绍" class="headerlink" title="路由表介绍"></a>路由表介绍</h3><ul>
-<li><p>查看路由表命令</p>
-<blockquote>
-<p>如果启用了IPv6选项，则路由表将同时显示IPv4和IPv6信息</p>
-</blockquote>
-  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">netstat -rn</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">route -s</span></pre></td></tr></table></figure>
-</li>
-<li><p>路由表标志解释</p>
-<table>
-<thead>
-<tr>
-<th align="left">标志</th>
-<th align="left">描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">U</td>
-<td align="left">Up-路由有效</td>
-</tr>
-<tr>
-<td align="left">G</td>
-<td align="left">Gateway-路由是到网关路由器，而不是直接连接的网络或主机</td>
-</tr>
-<tr>
-<td align="left">H</td>
-<td align="left">Host name- 路由是到主机的，而不是到目标地址是完整地址的网络</td>
-</tr>
-<tr>
-<td align="left">R</td>
-<td align="left">Reject-条目到期时由ARP设置（例如，无法将IP地址解析为MAC地址）</td>
-</tr>
-<tr>
-<td align="left">D</td>
-<td align="left">Dynamic-通过路由重定向或RIP添加的路由（如果启用了路由）</td>
-</tr>
-<tr>
-<td align="left">M</td>
-<td align="left">Modified-通过路由重定向修改的路由</td>
-</tr>
-<tr>
-<td align="left">C</td>
-<td align="left">Cloning-使用时将从该条目中克隆一条新路由</td>
-</tr>
-<tr>
-<td align="left">L</td>
-<td align="left">Link-存在链路级信息，例如以太网MAC地址</td>
-</tr>
-<tr>
-<td align="left">S</td>
-<td align="left">Static-用route命令添加的路由</td>
-</tr>
-</tbody></table>
-</li>
-<li><p>系统选择路由时遵循的规则</p>
-<ul>
-<li><p>查找最具体的（即匹配前缀最长的那些）</p>
-</li>
-<li><p>选择优先级最高的一个</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># Linux</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">在Linux/Windows上，优先级由metric决定</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># MacOS</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">在macOS上并非如此。macOS不会为单个路由分配指标，而是为接口分配优先级。</span></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-</ul>
-
+        
       
 
       
@@ -1302,19 +1170,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">redis基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">FTP</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">GIL锁</a>
+                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1322,7 +1182,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Server</a>
+                <a href="javascript:void(0)" class="js-tag color5">GIL锁</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">redis基础</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1330,7 +1194,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">redis安装</a>
+                <a href="javascript:void(0)" class="js-tag color3">Systemd</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Server</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1338,11 +1206,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Systemd</a>
+                <a href="javascript:void(0)" class="js-tag color5">mqtt</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Linux虚拟文件系统</a>
+                <a href="javascript:void(0)" class="js-tag color3">redis安装</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1350,11 +1218,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">supervisor</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">mqtt</a>
+                <a href="javascript:void(0)" class="js-tag color2">Linux虚拟文件系统</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1362,19 +1226,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">supervisor</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">python加密</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">迭代器</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">排序</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1382,7 +1238,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">排序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">魔法代码</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">迭代器</a>
               </li>
             
             <div class="clearfix"></div>

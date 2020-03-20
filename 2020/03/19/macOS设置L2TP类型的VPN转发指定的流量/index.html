@@ -16,7 +16,7 @@
 <meta property="og:description" content="VPN(L2TP) 在macOS系统下常常用到L2TP类型的VPN来接入公司网络. 但是通常情况下, 这种类型的VPN一旦接入, 会导致本机所有的流量流经该VPN. 包括对外网资源的访问. 如果公司外网较慢, 或者公司内网没有网络， 会严重影响本机访问外网的速度。之所以开启了VPN后会这样，是因为VPN软件优先使用其路由的标准技巧（添加路由，让路由共同覆盖了所有IP地址，但是每条路由都比默认路由更">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-03-19T18:30:38.000Z">
-<meta property="article:modified_time" content="2020-03-20T02:31:27.000Z">
+<meta property="article:modified_time" content="2020-03-20T04:30:47.000Z">
 <meta property="article:author" content="pocket">
 <meta property="article:tag" content="VPN">
 <meta name="twitter:card" content="summary">
@@ -190,6 +190,7 @@
         <h3 id="VPN-L2TP"><a href="#VPN-L2TP" class="headerlink" title="VPN(L2TP)"></a>VPN(L2TP)</h3><blockquote>
 <p>在macOS系统下常常用到L2TP类型的VPN来接入公司网络. 但是通常情况下, 这种类型的VPN一旦接入, 会导致本机所有的流量流经该VPN. 包括对外网资源的访问. 如果公司外网较慢, 或者公司内网没有网络， 会严重影响本机访问外网的速度。<br><br><strong>之所以开启了VPN后会这样，是因为VPN软件优先使用其路由的标准技巧（添加路由，让路由共同覆盖了所有IP地址，但是每条路由都比默认路由更具体，因此系统决定优先级的时候，他们将会获胜，获得高优先级）</strong></p>
 </blockquote>
+<a id="more"></a>
 <p><strong>注意</strong><br><br>网络有优先级服务顺序，开启L2TP VPN后发现无效，内网还是访问不了，但是设置L2TP为第一个服务顺序的话就可以访问。可是这样的话，如果内网不具备访问互联网的功能的话，就会导致我们电脑也不会有网，只能访问内网。每次需要访问互联网的时候就需要关闭VPN，来来回回切换就会体验很不好。</p>
 <hr>
 <ul>
@@ -585,19 +586,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">redis基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">FTP</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">GIL锁</a>
+                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -605,7 +598,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Server</a>
+                <a href="javascript:void(0)" class="js-tag color5">GIL锁</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">redis基础</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -613,7 +610,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">redis安装</a>
+                <a href="javascript:void(0)" class="js-tag color3">Systemd</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Server</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -621,11 +622,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Systemd</a>
+                <a href="javascript:void(0)" class="js-tag color5">mqtt</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Linux虚拟文件系统</a>
+                <a href="javascript:void(0)" class="js-tag color3">redis安装</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -633,11 +634,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">supervisor</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">mqtt</a>
+                <a href="javascript:void(0)" class="js-tag color2">Linux虚拟文件系统</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -645,19 +642,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">supervisor</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">python加密</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">迭代器</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">排序</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -665,7 +654,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">排序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">魔法代码</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">迭代器</a>
               </li>
             
             <div class="clearfix"></div>
