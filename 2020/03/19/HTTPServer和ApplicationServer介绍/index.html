@@ -6,17 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://pocketcloud.vip">
-  <title>macOS设置LHTTPServer和ApplicationServer介绍 | pocket的博客</title>
+  <title>HTTPServer和ApplicationServer介绍 | pocket的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="HTTP Server 严格的来说，Apache&#x2F;Nginx 应该叫做「HTTP Server」,类似Tomcat、WebLogic、(flask、Django内部自带的Web服务器)这些称为「Application Server」更合适。一个 HTTP Server 关心的是 HTTP 协议层面的传输和访问控制，所以在 Apache&#x2F;Nginx 上你可以看到代理、负载均衡等功能。客户端通过 HT">
 <meta property="og:type" content="article">
-<meta property="og:title" content="macOS设置LHTTPServer和ApplicationServer介绍">
-<meta property="og:url" content="https:&#x2F;&#x2F;pocketcloud.vip&#x2F;2020&#x2F;03&#x2F;19&#x2F;macOS%E8%AE%BE%E7%BD%AELHTTPServer%E5%92%8CApplicationServer%E4%BB%8B%E7%BB%8D&#x2F;index.html">
+<meta property="og:title" content="HTTPServer和ApplicationServer介绍">
+<meta property="og:url" content="https:&#x2F;&#x2F;pocketcloud.vip&#x2F;2020&#x2F;03&#x2F;19&#x2F;HTTPServer%E5%92%8CApplicationServer%E4%BB%8B%E7%BB%8D&#x2F;index.html">
 <meta property="og:site_name" content="pocket的博客">
 <meta property="og:description" content="HTTP Server 严格的来说，Apache&#x2F;Nginx 应该叫做「HTTP Server」,类似Tomcat、WebLogic、(flask、Django内部自带的Web服务器)这些称为「Application Server」更合适。一个 HTTP Server 关心的是 HTTP 协议层面的传输和访问控制，所以在 Apache&#x2F;Nginx 上你可以看到代理、负载均衡等功能。客户端通过 HT">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-03-19T20:27:22.000Z">
-<meta property="article:modified_time" content="2020-03-20T04:30:43.000Z">
+<meta property="article:modified_time" content="2020-03-20T04:35:56.000Z">
 <meta property="article:author" content="pocket">
 <meta property="article:tag" content="Server">
 <meta name="twitter:card" content="summary">
@@ -167,19 +167,19 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-macOS设置LHTTPServer和ApplicationServer介绍" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-HTTPServer和ApplicationServer介绍" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      macOS设置LHTTPServer和ApplicationServer介绍
+      HTTPServer和ApplicationServer介绍
     </h1>
   
 
         
-        <a href="/2020/03/19/macOS%E8%AE%BE%E7%BD%AELHTTPServer%E5%92%8CApplicationServer%E4%BB%8B%E7%BB%8D/" class="archive-article-date">
+        <a href="/2020/03/19/HTTPServer%E5%92%8CApplicationServer%E4%BB%8B%E7%BB%8D/" class="archive-article-date">
   	<time datetime="2020-03-19T20:27:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-20</time>
 </a>
         
@@ -343,9 +343,9 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <!-- <img src="http://qr.topscan.com/api.php?text=https://pocketcloud.vip/2020/03/19/macOS%E8%AE%BE%E7%BD%AELHTTPServer%E5%92%8CApplicationServer%E4%BB%8B%E7%BB%8D/" alt="微信分享二维码"> -->
-      <!-- <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://pocketcloud.vip/2020/03/19/macOS%E8%AE%BE%E7%BD%AELHTTPServer%E5%92%8CApplicationServer%E4%BB%8B%E7%BB%8D/" alt="微信分享二维码"> -->
-      <img src="https://sapi.k780.com/?app=qr.get&data=https://pocketcloud.vip/2020/03/19/macOS%E8%AE%BE%E7%BD%AELHTTPServer%E5%92%8CApplicationServer%E4%BB%8B%E7%BB%8D/" alt="微信分享二维码">
+      <!-- <img src="http://qr.topscan.com/api.php?text=https://pocketcloud.vip/2020/03/19/HTTPServer%E5%92%8CApplicationServer%E4%BB%8B%E7%BB%8D/" alt="微信分享二维码"> -->
+      <!-- <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://pocketcloud.vip/2020/03/19/HTTPServer%E5%92%8CApplicationServer%E4%BB%8B%E7%BB%8D/" alt="微信分享二维码"> -->
+      <img src="https://sapi.k780.com/?app=qr.get&data=https://pocketcloud.vip/2020/03/19/HTTPServer%E5%92%8CApplicationServer%E4%BB%8B%E7%BB%8D/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -521,11 +521,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">FTP</a>
+                <a href="javascript:void(0)" class="js-tag color2">Server</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">FTP</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -537,11 +541,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">redis基础</a>
+                <a href="javascript:void(0)" class="js-tag color3">redis安装</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">RPC</a>
+                <a href="javascript:void(0)" class="js-tag color3">redis基础</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -549,7 +553,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Server</a>
+                <a href="javascript:void(0)" class="js-tag color4">RPC</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -561,19 +565,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">redis安装</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">解释器</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Linux虚拟文件系统</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">python缓存</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -581,11 +573,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">python加密</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">并发概念</a>
+                <a href="javascript:void(0)" class="js-tag color4">解释器</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -593,15 +581,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">python缓存</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">并发概念</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">魔法代码</a>
+                <a href="javascript:void(0)" class="js-tag color4">python加密</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">迭代器</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">魔法代码</a>
               </li>
             
             <div class="clearfix"></div>
