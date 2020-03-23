@@ -3413,6 +3413,7 @@ var Gitment = function () {
       }, options);
 
       this.state.user.isLoggingIn = true;
+    // 修改认证
     //   _utils.http.post('https://gh-oauth.imsun.net', {
         _utils.http.post('https://auth.baixiaotu.cc', {
         code: code,
