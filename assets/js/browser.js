@@ -3415,7 +3415,7 @@ var Gitment = function () {
       this.state.user.isLoggingIn = true;
     // 修改认证
     //   _utils.http.post('https://gh-oauth.imsun.net', {
-        _utils.http.post('https://auth.baixiaotu.cc', {
+        _utils.http.post('https://github.com/login/oauth/access_token', {
         code: code,
         client_id: client_id,
         client_secret: client_secret
