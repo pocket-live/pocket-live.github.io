@@ -6,19 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://pocketcloud.vip">
-  <title>Redis-布隆过滤器 | pocket的博客</title>
+  <title>Tag: mysql | pocket的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="布隆过滤器 布隆过滤器（Bloom Filter）是1970年由布隆提出的。它实际上是一个很长的二进制向量和一系列随机映射函数。布隆过滤器可以用于检索一个元素是否在一个集合中。它的优点是空间效率和查询时间都比一般的算法要好的多，缺点是有一定的误识别率和删除困难。它可以通过一个Hash函数将一个元素映射成一个位阵列（Bit array）中的一个点。这样一来，我们只要看看这个点是不是1就可以知道集合中">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Redis-布隆过滤器">
-<meta property="og:url" content="https:&#x2F;&#x2F;pocketcloud.vip&#x2F;2020&#x2F;02&#x2F;05&#x2F;Redis-%E5%B8%83%E9%9A%86%E8%BF%87%E6%BB%A4%E5%99%A8&#x2F;index.html">
+  <meta name="description" content="余生很长，没有背景，只能努力拼搏才有能力守护心中的净土。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="pocket的博客">
+<meta property="og:url" content="https:&#x2F;&#x2F;pocketcloud.vip&#x2F;tags&#x2F;mysql&#x2F;index.html">
 <meta property="og:site_name" content="pocket的博客">
-<meta property="og:description" content="布隆过滤器 布隆过滤器（Bloom Filter）是1970年由布隆提出的。它实际上是一个很长的二进制向量和一系列随机映射函数。布隆过滤器可以用于检索一个元素是否在一个集合中。它的优点是空间效率和查询时间都比一般的算法要好的多，缺点是有一定的误识别率和删除困难。它可以通过一个Hash函数将一个元素映射成一个位阵列（Bit array）中的一个点。这样一来，我们只要看看这个点是不是1就可以知道集合中">
+<meta property="og:description" content="余生很长，没有背景，只能努力拼搏才有能力守护心中的净土。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-02-05T01:36:41.000Z">
-<meta property="article:modified_time" content="2020-02-15T10:00:32.597Z">
 <meta property="article:author" content="pocket">
-<meta property="article:tag" content="布隆过滤器">
+<meta property="article:tag" content="Linux Python 后台开发 运维 docker">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="pocket的博客" type="application/atom+xml">
@@ -167,321 +165,79 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Redis-布隆过滤器" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            <!--
+ * @Author: your name
+ * @Date: 2019-12-18 17:30:44
+ * @LastEditTime: 2020-03-13 10:22:28
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: /Blog/themes/yilia/layout/_partial/archive.ejs
+ -->
+
   
-    <h1 class="article-title" itemprop="name">
-      Redis-布隆过滤器
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2021" class="archive-year">2021</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2021/06/13/mysql%E5%BA%93%E9%80%89%E5%9E%8B%E6%96%B9%E6%A1%88/" class="archive-article-date">
+  	<time datetime="2021-06-13T19:12:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-14</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2021/06/13/mysql%E5%BA%93%E9%80%89%E5%9E%8B%E6%96%B9%E6%A1%88/">mysql库选型方案</a>
     </h1>
   
 
-        
-        <a href="/2020/02/05/Redis-%E5%B8%83%E9%9A%86%E8%BF%87%E6%BB%A4%E5%99%A8/" class="archive-article-date">
-  	<time datetime="2020-02-05T01:36:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-05</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="布隆过滤器"><a href="#布隆过滤器" class="headerlink" title="布隆过滤器"></a>布隆过滤器</h3><blockquote>
-<p>布隆过滤器（Bloom Filter）是1970年由布隆提出的。它实际上是一个很长的二进制向量和一系列随机映射函数。布隆过滤器可以用于检索一个元素是否在一个集合中。它的优点是空间效率和查询时间都比一般的算法要好的多，缺点是有一定的误识别率和删除困难。<br>它可以通过一个Hash函数将一个元素映射成一个位阵列（Bit array）中的一个点。这样一来，我们只要看看这个点是不是1就可以知道集合中有没有它了。这就是布隆过滤器的基本思想。Hash面临的问题就是冲突，解决方法也简单，就是使用多个Hash。<br><br>可以把布隆过滤器理解为一个不怎么精确的set结构（set结构带有去重功能），当使用它的contains方法判断某个对象是否存在时，它可能会误判。但是布隆过滤器也不是特别不精确，只要参数设置得合理，它的精确度也是可以控制得相对足够精确，只会有小小的误判概率。<br><br><strong>一般我们可以将它用来防止缓存穿透问题，减少数据存储空间问题，降低数据库IO访问量。</strong></p>
-</blockquote>
-<a id="more"></a>
-<h4 id="Redis中的布隆过滤器"><a href="#Redis中的布隆过滤器" class="headerlink" title="Redis中的布隆过滤器"></a>Redis中的布隆过滤器</h4><blockquote>
-<p>布隆过滤器是作为一个插件加载到Redis Server中的，所以我们如果要用它的话，就得去安装，不过也是可以在安装Redis服务的时候就把它装好了（比如，docker安装）<br><a href="https://github.com/RedisBloom/RedisBloom" target="_blank" rel="noopener">RedisBloom官网</a><br><br>注意，redis在4.0以后才支持loadmodule插件功能</p>
-</blockquote>
-<h5 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h5><ul>
-<li><p>docker</p>
-  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">docker pull redislabs/rebloom</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">docker run -p 6379:6379 --name redis-redisbloom redislabs/rebloom</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">docker <span class="built_in">exec</span> -it redis-redisbloom bash</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># redis-cli</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># 127.0.0.1:6379&gt; </span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># 127.0.0.1:6379&gt; BF.ADD newFilter foo</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">(<span class="built_in">integer</span>) 1</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># 127.0.0.1:6379&gt; BF.EXISTS newFilter foo</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">(<span class="built_in">integer</span>) 1</span></pre></td></tr></table></figure></li>
-<li><p>手动安装</p>
-<blockquote>
-<p>需要先下载<a href="https://github.com/RedisBloom/RedisBloom/releases" target="_blank" rel="noopener">Bloom过滤器模块</a></p>
-</blockquote>
-  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">wget https://github.com/RedisBloom/RedisBloom/archive/v2.2.1.tar.gz</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">tar zxvf v2.2.1.tar.gz</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> RedisBloom-2.2.1/</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">make</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># 启动是指定redisbloom.so路径</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">redis-server --loadmodule /home/RedisBloom-2.2.1/redisbloom.so --daemonize yes</span></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h5 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h5><ul>
-<li><p>常用方法</p>
-  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># bf.add用来添加元素，一次只能添加一个元素，添加重复将返回0</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; bf.add <span class="built_in">test</span> user1</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">(<span class="built_in">integer</span>) 1</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; bf.add <span class="built_in">test</span> user2</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">(<span class="built_in">integer</span>) 1</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; bf.add <span class="built_in">test</span> user2</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">(<span class="built_in">integer</span>) 0</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; bf.add <span class="built_in">test</span> user3</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">(<span class="built_in">integer</span>) 1</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># bf.exists用来判断元素是否存在</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; bf.exists <span class="built_in">test</span> user4</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">(<span class="built_in">integer</span>) 0</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; bf.exists <span class="built_in">test</span> user3</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line">(<span class="built_in">integer</span>) 1</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># bf.madd用来一次性添加多个元素</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">18</span></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; bf.madd <span class="built_in">test</span> user1 user5</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">19</span></pre></td><td class="code"><pre><span class="line">1) (<span class="built_in">integer</span>) 0</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">20</span></pre></td><td class="code"><pre><span class="line">2) (<span class="built_in">integer</span>) 1</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">21</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">22</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># bf.mexists用来一次性查询多个元素是否存在</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">23</span></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; bf.mexists <span class="built_in">test</span> user1 user6</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">24</span></pre></td><td class="code"><pre><span class="line">1) (<span class="built_in">integer</span>) 1</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">25</span></pre></td><td class="code"><pre><span class="line">2) (<span class="built_in">integer</span>) 0</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">26</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">27</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看key的空间容量</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">28</span></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; BF.DEBUG <span class="built_in">test</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">29</span></pre></td><td class="code"><pre><span class="line">1) <span class="string">"size:4"</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">30</span></pre></td><td class="code"><pre><span class="line">2) <span class="string">"bytes:138 bits:1104 hashes:8 hashwidth:64 capacity:100 size:4 ratio:0.005"</span></span></pre></td></tr></table></figure></li>
-<li><p>提高精准度</p>
-<blockquote>
-<p>有时候我们希望调整精确度，让布隆过滤器的误判率降低，这时候就得使用bf.reserve</p>
-</blockquote>
-<p>  <strong>注意，必须在bf.add之前显示的声明key，如果对应的 key 已经存在，bf.reserve会报错。同时设置的错误率越低，需要的空间越大。如果不使用 bf.reserve，默认的error_rate是 0.01，默认的initial_size是 100</strong><br><br>  <strong>bf.reserve [key] [error_rate] [initial_size]</strong><br>  error_rate:越低，需要的空间越大<br>  initial_size：表示预计放入的元素数量，当实际数量超出这个数值时，误判率会上升，所以需要提前设置一个合理的数值</p>
-  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; bf.reserve user_data 0.001 100000</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">OK</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; bf.add user_data user1</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">(<span class="built_in">integer</span>) 1</span></pre></td></tr></table></figure>
-</li>
-<li><p>python实现</p>
-  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="string">'''</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="string">redis4.0+ 新增插件功能（可以额外增加布隆过滤器模块）</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"><span class="string">'''</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> redis</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">client = redis.StrictRedis(host=<span class="string">'127.0.0.1'</span>,port=<span class="number">6379</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">client.delete(<span class="string">"user_data"</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># 主动设置元素值和错误率(一般比实际高出一些，做冗余)</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">client.execute_command(<span class="string">'bf.reserve'</span>,<span class="string">'user_data'</span>,<span class="number">0.001</span>,<span class="number">120000</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">100000</span>):</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">    user_id = <span class="string">"id_%d"</span> % i</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">    client.execute_command(<span class="string">'bf.add'</span>, <span class="string">"user_data"</span>, user_id)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">    ret = client.execute_command(<span class="string">'bf.exists'</span>, <span class="string">'user_data'</span>,user_id + <span class="string">'1'</span>) <span class="comment"># 故意增加1，测试布隆过滤器对于未见过的元素误判率</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">if</span> ret == <span class="number">1</span>:</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line">        print(i)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">break</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">18</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">19</span></pre></td><td class="code"><pre><span class="line"><span class="string">"""</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">20</span></pre></td><td class="code"><pre><span class="line"><span class="string">100000个元素测试结果：</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">21</span></pre></td><td class="code"><pre><span class="line"><span class="string">    默认参数下：第152个元素的时候出现误判</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">22</span></pre></td><td class="code"><pre><span class="line"><span class="string">    修改误判率后：未发现误判率(不过占用内存空间也上升，将近232KB)</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">23</span></pre></td><td class="code"><pre><span class="line"><span class="string">    </span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">24</span></pre></td><td class="code"><pre><span class="line"><span class="string">127.0.0.1:6379&gt; BF.DEBUG user_data</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">25</span></pre></td><td class="code"><pre><span class="line"><span class="string">1) "size:100000"</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">26</span></pre></td><td class="code"><pre><span class="line"><span class="string">2) "bytes:237305 bits:1898440 hashes:11 hashwidth:64 capacity:120000 size:100000 ratio:0.0005"</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">27</span></pre></td><td class="code"><pre><span class="line"><span class="string">"""</span></span></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h5 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h5><blockquote>
-<p>布隆过滤器的initial_size设置的过大，会浪费存储空间，设置得过小，就会影响准确率，所以在使用之前一定要尽可能的精确估计元素数量，还需要加上一定的冗余空间以避免实际元素可能会意外高出估计值很多。<br><br>布隆过滤器的error_rate越小，需要的存储空间就越大，对于不需要过于精确的场合，error_rate设置稍大一点也无伤大雅。<br><br>当实际元素数量开始超出阈值时，应该对布隆过滤器进行重建（重建之前记得存储所有原始数据），重新分配一个size更大的过滤器，再将所有的历史元素批量add进去（这就要求我们在其他的存储器中记录所有的历史元素）或者<strong>用堆叠法，另开一个新的布隆过滤器，只是在代码中判断的时候需要一起判断</strong></p>
-</blockquote>
-<h5 id="空间占用估计"><a href="#空间占用估计" class="headerlink" title="空间占用估计"></a>空间占用估计</h5><blockquote>
-<p>一般在估算空间占用的时候，都有一个简单的计算公式。麻烦的话也可以使用在线的<a href="https://krisives.github.io/bloom-calculator" target="_blank" rel="noopener">布隆计算器</a></p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="string">'''</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="string">n:预计元素数量</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"><span class="string">f：错误率</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"><span class="string">l：位数组的长度</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"><span class="string">k：hash函数的最佳数量，最佳数量会有最低的错误率</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line"><span class="string">'''</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">f = <span class="number">0.6185</span> ^ (l/n)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">k = <span class="number">0.7</span> * (l/n) <span class="comment"># 约等于</span></span></pre></td></tr></table></figure>
-<p>当实际元素超出预计的时候，我们需要了解实际的误判率，就可以使用以下公式计算</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="string">'''</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="string">t:表示实际元素和预计元素的倍数</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"><span class="string">k:最佳数量</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"><span class="string">f：错误率</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"><span class="string">'''</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">f = (<span class="number">1</span> - <span class="number">0.5</span> ^ t) ^ k</span></pre></td></tr></table></figure>
-
-<h4 id="其余布隆过滤器（建议还是使用原生rebloom-module插件）"><a href="#其余布隆过滤器（建议还是使用原生rebloom-module插件）" class="headerlink" title="其余布隆过滤器（建议还是使用原生rebloom module插件）"></a>其余布隆过滤器（<strong>建议还是使用原生rebloom module插件</strong>）</h4><blockquote>
-<p>除了redis4.0之后支持的rebloom module以外，还有其他第三方也在实际项目中使用（可作为替代原生方案）</p>
-</blockquote>
-<ul>
-<li><p><a href="https://github.com/seomoz/pyreBloom" target="_blank" rel="noopener">pyreBloom</a></p>
-<blockquote>
-<p>redis布隆过滤器python版本的库，不过不支持重连和重试，使用时最好在做一层封装</p>
-</blockquote>
-<ul>
-<li><p>安装</p>
-  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># pyreBloom需要hiredis支持（redis数据库的简约C客户端库），以及gcc环境，采用Cython</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># 这是pyreBloom的一个分支，但速度更快一点，具有更好的API并支持Python 2.6 +，3.3 +，PyPy 2和PyPy 3</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">pip install pyreBloom-ng</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># 上面安装的时候报错，我采用原来的方式</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/seomoz/pyreBloom.git</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> pyreBloom/</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">pip install -r requirements.txt -i https://mirrors.aliyun.com/pypi/simple</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># 这一步的成功条件是需要安装hiredis</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">python setup.py install</span></pre></td></tr></table></figure>
-<ul>
-<li><p>hiredis</p>
-<blockquote>
-<p>redis数据库的简约C客户端库,是redis官方的C语言客户端，支持所有命令（command set），管道（pipelining），时间驱动编程（event driven programming）</p>
-</blockquote>
-  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># From https://github.com/paulasmuth/recommendify/issues/6#issuecomment-4496616</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># via https://github.com/seomoz/pyreBloom/issues/7#issuecomment-21182063</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"><span class="comment">#</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># On Mac:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">brew install hiredis</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># With Ubuntu:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">apt-get install libhiredis-dev</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># From source:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/redis/hiredis</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> hiredis &amp;&amp; make &amp;&amp; sudo make install</span></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-<li><p>使用</p>
-  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># 目前python3.7并没有通过测试（python2.7是可以的），怀疑不支持，所以我们建议redis官方插件</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pyreBloom</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">p = pyreBloom.pyreBloom(<span class="string">'myBloomFilter'</span>, <span class="number">100000</span>, <span class="number">0.01</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># 可以找出理论上将消耗多少位空间</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">p.bits</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># 获取需要多少哈希来满足误报率</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">p.hashes</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">tests = [<span class="string">'hello'</span>, <span class="string">'how'</span>, <span class="string">'are'</span>, <span class="string">'you'</span>, <span class="string">'today'</span>]</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">p.extend(tests)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">p.contains(<span class="string">'hello'</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># True</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">p.contains([<span class="string">'hello'</span>, <span class="string">'whats'</span>, <span class="string">'new'</span>, <span class="string">'with'</span>, <span class="string">'you'</span>])</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># ['hello', 'you']</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line"><span class="string">'hello'</span> <span class="keyword">in</span> p</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># True</span></span></pre></td></tr></table></figure>
-
-<p>如果需要使用封装好的推荐使用已经存在的项目</p>
-<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">git clone http<span class="variable">s:</span>//github.<span class="keyword">com</span>/luw2007/bloomfilter.git &amp;&amp; \</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">cd</span> bloomfilter &amp;&amp; \</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">pip install -r requirements.txt &amp;&amp; \</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">python</span> setup.<span class="keyword">py</span> install</span></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-<li><p>orestes-bloomfilter</p>
-<blockquote>
-<p>redis布隆过滤器java版本的库</p>
-</blockquote>
-</li>
-<li><p>原生python 调用setbit 构造 BloomFilter</p>
-</li>
-<li><p>lua脚本</p>
-</li>
-</ul>
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>拿钱去买猫粮~<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/assets/img/weixin.jpg" style="width: auto; height:250px; max-width: 100%;">
-                      <span class="reward-type">微信</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">布隆过滤器</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/数据库//" class="article-tag-list-link color4">数据库</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/数据库/redis//" class="article-tag-list-link color1">redis</a>
+        			<a href="/categories/python//" class="article-tag-list-link color2">python</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
-      
-
-      
-        <!--
- * @Author: your name
- * @Date: 2019-12-18 17:30:44
- * @LastEditTime: 2021-06-14 10:28:10
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: /Blog/themes/yilia/layout/_partial/post/share.ejs
- -->
-
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <!-- <img src="http://qr.topscan.com/api.php?text=https://pocketcloud.vip/2020/02/05/Redis-%E5%B8%83%E9%9A%86%E8%BF%87%E6%BB%A4%E5%99%A8/" alt="微信分享二维码"> -->
-      <!-- <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://pocketcloud.vip/2020/02/05/Redis-%E5%B8%83%E9%9A%86%E8%BF%87%E6%BB%A4%E5%99%A8/" alt="微信分享二维码"> -->
-      <!-- <img src="https://sapi.k780.com/?app=qr.get&data=https://pocketcloud.vip/2020/02/05/Redis-%E5%B8%83%E9%9A%86%E8%BF%87%E6%BB%A4%E5%99%A8/" alt="微信分享二维码"> -->
-      <img src="https://qrcode.jp/qr?q=https://pocketcloud.vip/2020/02/05/Redis-%E5%B8%83%E9%9A%86%E8%BF%87%E6%BB%A4%E5%99%A8/&s=8" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2020/02/10/%E5%B8%B8%E8%A7%81%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          常见排序算法
-        
-      </div>
-    </a>
   
   
-    <a href="/2020/01/04/Redis%E5%9F%BA%E7%A1%80%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Redis基础数据结构</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#布隆过滤器"><span class="toc-number">1.</span> <span class="toc-text">布隆过滤器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Redis中的布隆过滤器"><span class="toc-number">1.1.</span> <span class="toc-text">Redis中的布隆过滤器</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#安装"><span class="toc-number">1.1.1.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#基本用法"><span class="toc-number">1.1.2.</span> <span class="toc-text">基本用法</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#注意事项"><span class="toc-number">1.1.3.</span> <span class="toc-text">注意事项</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#空间占用估计"><span class="toc-number">1.1.4.</span> <span class="toc-text">空间占用估计</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#其余布隆过滤器（建议还是使用原生rebloom-module插件）"><span class="toc-number">1.2.</span> <span class="toc-text">其余布隆过滤器（建议还是使用原生rebloom module插件）</span></a></li></ol></li></ol>
-                    </div>
-                </span>
-            </div>
-        </div>
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
-
-  
-  <div id="gitment-ctn"></div> 
-<!-- <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
-<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script> -->
-<link rel="stylesheet" href="/assets/css/default.css">
-<script src="/assets/js/browser.js"></script>
-<script>
-var gitment = new Gitment({
-  // id: "https://pocketcloud.vip/2020/02/05/Redis-%E5%B8%83%E9%9A%86%E8%BF%87%E6%BB%A4%E5%99%A8/",
-  // id: 'Wed Feb 05 2020 09:36:41 GMT+0800',
-  id: decodeURI(window.location.pathname),
-  owner: 'pocket-live',
-  repo: 'BlogComments',
-  oauth: {
-    client_id: '199927b153f89fbc82ac',
-    client_secret: '4afc14598af79bb72d80523558a609dec1ee2a55',
-  },
-})
-gitment.render('gitment-ctn')
-</script>
-
-  
+    
 
 
           </div>
@@ -513,9 +269,9 @@ gitment.render('gitment-ctn')
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
